@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+                    //с помощью классового коспонента
 // class Categories extends React.Component {
 //   state ={
 //     activeItem: 3,
