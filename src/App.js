@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
 // import { connect } from "react-redux";
 import { Header } from "./components";
 import { Route, Routes } from "react-router-dom";
-import { setPizzas } from "./redux/actions/pizzas";
-import Home from "./pages/Home";
-import Cart from "./pages/Cart";
+
+import { Home, Cart } from "./pages";
+
+import { useDispatch } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    axios.get("http://localhost:3000/pizzas").then(({ data }) => {
-      dispatch(setPizzas(data));
-    });
-  }, []);
+
   return (
     <div className="wrapper">
       <Header />
@@ -31,7 +26,6 @@ function App() {
 export default App;
 
 //С помощью классового коспонента
-
 // class App extends React.Component {
 //   componentDidMount() {
 //     axios.get("http://localhost:3001/db.json").then(({ data }) => {
