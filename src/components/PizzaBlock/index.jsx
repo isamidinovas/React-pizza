@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import LoadingBlock from "./LoadingBlock";
+
 // import { types } from "node-sass";
 
 const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
+  
   const availableTypes = ["тонкое", "традиционное"];
   const availableSizes = [26, 30, 40];
   const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(sizes[0]);
-
+ 
   const onSelectType = (index) => {
     //для того чтобы выбрать один из типов пиццы
     setActiveType(index);
@@ -17,6 +20,7 @@ const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
   const onSelectSize = (index) => {
     setActiveSize(index);
   };
+
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
@@ -84,9 +88,9 @@ PizzaBlock.propTypes = {
 
 //если свойство отсутствует , предотвращает ошибку
 PizzaBlock.defaultProps = {
-  name: '___',
-  price:0,
+  name: "___",
+  price: 0,
   types: [],
-  sizes:[],
+  sizes: [],
 };
 export default PizzaBlock;
